@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <requires lib="gtk+" version="3.0" />
+  <requires lib="gtk" version="4.0"/>
   <template class="RoundedCornersItem" parent="GtkListBox">
     <property name="selection-mode">none</property>
     <child>
@@ -16,7 +16,7 @@
                 <child>
                   <object class="GtkLabel">
                     <property name="halign">start</property>
-                    <property name="label" translatable="yes">Border Radius</property>
+                    <property name="label" translatable="true">Border Radius</property>
                   </object>
                 </child>
               </object>
@@ -27,7 +27,7 @@
                 <property name="valign">center</property>
                 <property name="width-request">280</property>
                 <property name="draw-value">true</property>
-                <property name="round-digits">0</property>
+                <property name="round-digits">3</property>
                 <property name="orientation">horizontal</property>
                 <property name="adjustment">border_radius_ajustment</property>
                 <property name="value-pos">right</property>
@@ -50,7 +50,7 @@
                 <child>
                   <object class="GtkLabel">
                     <property name="halign">start</property>
-                    <property name="label" translatable="yes">Corner Smoothing</property>
+                    <property name="label" translatable="true">Corner Smoothing</property>
                   </object>
                 </child>
               </object>
@@ -83,16 +83,16 @@
                 <child>
                   <object class="GtkLabel">
                     <property name="halign">start</property>
-                    <property name="label" translatable="yes">Keep Rounded Corners When Maximized</property>
+                    <property name="label" translatable="true">Keep Rounded Corners When Maximized</property>
                   </object>
                 </child>
                 <child>
                   <object class="GtkLabel">
                     <property name="halign">start</property>
                     <property name="use-markup">true</property>
-                    <property name="label" translatable="yes">Always keep rounded corners when window is maximized or tiled.</property>
+                    <property name="label" translatable="true">Always keep rounded corners when window is maximized or tiled.</property>
                     <style>
-                      <class name="caption" />
+                      <class name="caption"/>
                     </style>
                   </object>
                 </child>
@@ -109,43 +109,56 @@
       </object>
     </child>
     <child>
-      <object class="GtkListBoxRow" id="paddings_row">
+      <object class="GtkListBoxRow">
+        <style>
+          <class name="expander"/>
+        </style>
         <child>
           <object class="GtkBox">
             <property name="orientation">vertical</property>
             <child>
-              <object class="GtkBox">
+              <object class="GtkListBoxRow" id="paddings_row">
                 <child>
                   <object class="GtkBox">
-                    <property name="valign">center</property>
-                    <property name="hexpand">true</property>
                     <property name="orientation">vertical</property>
                     <child>
-                      <object class="GtkLabel" id="title">
-                        <property name="halign">start</property>
-                        <property name="label" translatable="yes">Paddings</property>
+                      <object class="GtkBox">
+                        <child>
+                          <object class="GtkBox">
+                            <property name="valign">center</property>
+                            <property name="hexpand">true</property>
+                            <property name="orientation">vertical</property>
+                            <child>
+                              <object class="GtkLabel" id="title">
+                                <property name="halign">start</property>
+                                <property name="label" translatable="true">Paddings</property>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkLabel" id="description">
+                                <property name="halign">start</property>
+                                <property name="use-markup">true</property>
+                                <property name="label" translatable="true">Clip paddings of window</property>
+                                <style>
+                                  <class name="caption"/>
+                                </style>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkImage" id="expander_img">
+                            <property name="visible">true</property>
+                            <property name="valign">center</property>
+                            <property name="icon-name">go-next-symbolic</property>
+                            <style>
+                              <class name="expander_img"/>
+                              <class name="expander-row-arrow"/>
+                            </style>
+                          </object>
+                        </child>
                       </object>
                     </child>
-                    <child>
-                      <object class="GtkLabel" id="description">
-                        <property name="halign">start</property>
-                        <property name="use-markup">true</property>
-                        <property name="label" translatable="yes">Clip paddings of window</property>
-                        <style>
-                          <class name="caption" />
-                        </style>
-                      </object>
-                    </child>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkImage" id="expander_img">
-                    <property name="visible">true</property>
-                    <property name="valign">center</property>
-                    <property name="icon-name">go-next-symbolic</property>
-                    <style>
-                      <class name="expander_img"/>
-                    </style>
                   </object>
                 </child>
               </object>
@@ -154,9 +167,8 @@
               <object class="GtkRevealer" id="revealer">
                 <child>
                   <object class="GtkListBox">
-                    <property name="selection-mode">none</property>
                     <style>
-                      <class name="rich-list" />
+                      <class name="nested"/>
                     </style>
                     <child>
                       <object class="GtkListBoxRow">
@@ -170,7 +182,7 @@
                                 <child>
                                   <object class="GtkLabel">
                                     <property name="halign">start</property>
-                                    <property name="label" translatable="yes">Left</property>
+                                    <property name="label" translatable="true">Left</property>
                                   </object>
                                 </child>
                               </object>
@@ -203,7 +215,7 @@
                                 <child>
                                   <object class="GtkLabel">
                                     <property name="halign">start</property>
-                                    <property name="label" translatable="yes">Right</property>
+                                    <property name="label" translatable="true">Right</property>
                                   </object>
                                 </child>
                               </object>
@@ -236,7 +248,7 @@
                                 <child>
                                   <object class="GtkLabel">
                                     <property name="halign">start</property>
-                                    <property name="label" translatable="yes">Top</property>
+                                    <property name="label" translatable="true">Top</property>
                                   </object>
                                 </child>
                               </object>
@@ -269,7 +281,7 @@
                                 <child>
                                   <object class="GtkLabel">
                                     <property name="halign">start</property>
-                                    <property name="label" translatable="yes">Bottom</property>
+                                    <property name="label" translatable="true">Bottom</property>
                                   </object>
                                 </child>
                               </object>
@@ -305,7 +317,7 @@
     <property name="page-increment">1</property>
     <property name="step-increment">1</property>
   </object>
-    <object class="GtkAdjustment" id="smoothing_ajustment">
+  <object class="GtkAdjustment" id="smoothing_ajustment">
     <property name="lower">0</property>
     <property name="upper">1</property>
     <property name="page-increment">0.1</property>

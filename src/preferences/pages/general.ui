@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <requires lib="gtk" version="4.0" />
+  <requires lib="gtk" version="4.0"/>
   <template class="General" parent="GtkBox">
     <property name="orientation">vertical</property>
     <property name="spacing">12</property>
     <child>
       <object class="GtkLabel">
         <property name="halign">start</property>
-        <property name="label" translatable="yes">Applications</property>
+        <property name="label" translatable="true">Applications</property>
         <style>
-          <class name="heading" />
+          <class name="heading"/>
         </style>
       </object>
     </child>
@@ -20,9 +20,9 @@
         <property name="wrap-mode">word-char</property>
         <property name="max-width-chars">25</property>
         <property name="halign">fill</property>
-        <property name="label" translatable="yes">Some applications written using LibAdwaita or LibHandy already have native rounded corners, so we can skip them through these settings</property>
+        <property name="label" translatable="true">Some applications written by Libhandy / LibAdwaita already have native rounded corners, so we can skip them by those items</property>
         <style>
-          <class name="caption" />
+          <class name="dim-label"/>
         </style>
       </object>
     </child>
@@ -30,7 +30,9 @@
       <object class="GtkListBox" id="applications_group">
         <property name="selection-mode">none</property>
         <style>
-          <class name="frame"></class>
+          <class name="frame"/>
+          <class name="rich-list"/>
+          <class name="boxed-list"/>
         </style>
         <child>
           <object class="GtkListBoxRow">
@@ -44,7 +46,7 @@
                     <child>
                       <object class="GtkLabel">
                         <property name="halign">start</property>
-                        <property name="label" translatable="yes">Skip LibAdwaita Applications</property>
+                        <property name="label" translatable="true">Skip LibAdwaita Applications</property>
                       </object>
                     </child>
                   </object>
@@ -71,7 +73,7 @@
                     <child>
                       <object class="GtkLabel">
                         <property name="halign">start</property>
-                        <property name="label" translatable="yes">Skip LibHandy Applications</property>
+                        <property name="label" translatable="true">Skip LibHandy Applications</property>
                       </object>
                     </child>
                   </object>
@@ -98,40 +100,38 @@
                     <child>
                       <object class="GtkLabel">
                         <property name="halign">start</property>
-                        <property name="label" translatable="yes">Window Shadow</property>
+                        <property name="label" translatable="true">Window Shadow</property>
                       </object>
                     </child>
                     <child>
                       <object class="GtkLabel">
                         <property name="halign">start</property>
-                        <property name="label" translatable="yes">Customize the shadow of the rounded corner window</property>
+                        <property name="label" translatable="true">Customize the shadow of the rounded corner window</property>
                         <style>
                           <class name="caption"/>
-                        </style>  
+                          <class name="subtitle"/>
+                        </style>
                       </object>
                     </child>
                   </object>
                 </child>
                 <child>
                   <object class="GtkImage">
-                    <property name="icon_name">go-next-symbolic</property>
+                    <property name="icon-name">go-next-symbolic</property>
                   </object>
                 </child>
               </object>
             </child>
           </object>
         </child>
-        <style>
-          <class name="rich-list" />
-        </style>
       </object>
     </child>
     <child>
       <object class="GtkLabel">
         <property name="halign">start</property>
-        <property name="label" translatable="yes">Global Settings</property>
+        <property name="label" translatable="true">Global Settings</property>
         <style>
-          <class name="heading" />
+          <class name="heading"/>
         </style>
       </object>
     </child>
@@ -140,9 +140,9 @@
         <property name="halign">start</property>
         <property name="wrap">true</property>
         <property name="xalign">0</property>
-        <property name="label" translatable="yes">This settings will try to effects all windows</property>
+        <property name="label" translatable="true">This settings will try to effects all windows</property>
         <style>
-          <class name="caption" />
+          <class name="dim-label"/>
         </style>
       </object>
     </child>
@@ -150,8 +150,9 @@
       <object class="GtkListBox" id="global_settings_preferences_group">
         <property name="selection-mode">none</property>
         <style>
-          <class name="frame"></class>
-          <class name="rich-list" />
+          <class name="frame"/>
+          <class name="rich-list"/>
+          <class name="boxed-list"/>
         </style>
         <child>
           <object class="GtkListBoxRow">
@@ -165,7 +166,7 @@
                     <child>
                       <object class="GtkLabel">
                         <property name="halign">start</property>
-                        <property name="label" translatable="yes">Border Width</property>
+                        <property name="label" translatable="true">Border Width</property>
                       </object>
                     </child>
                   </object>
@@ -198,7 +199,7 @@
                     <child>
                       <object class="GtkLabel">
                         <property name="halign">start</property>
-                        <property name="label" translatable="yes">Border Color</property>
+                        <property name="label" translatable="true">Border Color</property>
                       </object>
                     </child>
                   </object>
@@ -219,9 +220,9 @@
     <child>
       <object class="GtkLabel">
         <property name="halign">start</property>
-        <property name="label" translatable="yes">Debug</property>
+        <property name="label" translatable="true">Debug</property>
         <style>
-          <class name="heading" />
+          <class name="heading"/>
         </style>
       </object>
     </child>
@@ -229,8 +230,9 @@
       <object class="GtkListBox">
         <property name="selection-mode">none</property>
         <style>
-          <class name="frame"></class>
-          <class name="rich-list" />
+          <class name="frame"/>
+          <class name="rich-list"/>
+          <class name="boxed-list"/>
         </style>
         <child>
           <object class="GtkListBoxRow">
@@ -244,17 +246,17 @@
                     <child>
                       <object class="GtkLabel">
                         <property name="halign">start</property>
-                        <property name="label" translatable="yes">Enable Log</property>
+                        <property name="label" translatable="true">Enable Log</property>
                       </object>
                     </child>
                     <child>
                       <object class="GtkLabel">
                         <property name="halign">start</property>
                         <property name="use-markup">true</property>
-                        <property name="label" translatable="yes">Run &lt;i&gt;journalctl -o cat -f /usr/bin/gnome-shell&lt;/i&gt; in terminal to see the log</property>
+                        <property name="label" translatable="true">Run &lt;i&gt;journalctl -o cat -f /usr/bin/gnome-shell&lt;/i&gt; in terminal to see the log</property>
                         <style>
                           <class name="caption"/>
-                        </style>  
+                        </style>
                       </object>
                     </child>
                   </object>
@@ -272,12 +274,10 @@
       </object>
     </child>
   </template>
-
   <object class="GtkAdjustment" id="border_width_ajustment">
     <property name="lower">0</property>
     <property name="upper">40</property>
     <property name="page-increment">1</property>
     <property name="step-increment">1</property>
   </object>
-
 </interface>

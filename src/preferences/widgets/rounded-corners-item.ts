@@ -1,17 +1,17 @@
 // imports.gi
-import * as GObject          from '@gi/GObject'
-import * as Gtk              from '@gi/Gtk'
+import * as GObject from '@gi/GObject'
+import * as Gtk from '@gi/Gtk'
 
 // local modules
-import { template_url }      from '../../utils/io'
+import { template_url } from '../../utils/io'
 import { RoundedCornersCfg } from '../../utils/types'
-import connections           from '../../utils/connections'
+import connections from '../../utils/connections'
 
 // ------------------------------------------------------------------ end import
 
-export default GObject.registerClass (
+export default GObject.registerClass(
     {
-        Template: template_url (import.meta.url, './rounded-corners-item.ui'),
+        Template: template_url(import.meta.url, './rounded-corners-item.ui'),
         GTypeName: 'RoundedCornersItem',
         InternalChildren: [
             'rounded_in_maximized_switch',
@@ -41,8 +41,8 @@ export default GObject.registerClass (
 
         private _scales                      !: Gtk.Scale[]
 
-        _init () {
-            super._init ()
+        _init() {
+            super._init()
             this._scales = [
                 this._border_radius_scale,
                 this._smoothing_scale,
@@ -53,59 +53,59 @@ export default GObject.registerClass (
             ]
         }
 
-        update_revealer () {
+        update_revealer() {
             this._revealer.reveal_child = !this._revealer.reveal_child
             if (this._revealer.reveal_child) {
-                this._expander_img.add_css_class ('rotated')
+                this._expander_img.add_css_class('rotated')
             } else {
-                this._expander_img.remove_css_class ('rotated')
+                this._expander_img.remove_css_class('rotated')
             }
         }
 
-        watch (on_cfg_changed: (cfg: RoundedCornersCfg) => void) {
+        watch(on_cfg_changed: (cfg: RoundedCornersCfg) => void) {
             connections
-                .get ()
-                .connect (this._rounded_in_maximized_switch, 'state-set', () =>
-                    on_cfg_changed (this.cfg)
+                .get()
+                .connect(this._rounded_in_maximized_switch, 'state-set', () =>
+                    on_cfg_changed(this.cfg)
                 )
             for (const scale of this._scales) {
-                connections.get ().connect (scale, 'value-changed', () => {
-                    on_cfg_changed (this.cfg)
+                connections.get().connect(scale, 'value-changed', () => {
+                    on_cfg_changed(this.cfg)
                 })
             }
         }
 
-        unwatch () {
-            const c = connections.get ()
+        unwatch() {
+            const c = connections.get()
             for (const scale of this._scales) {
-                c.disconnect_all (scale)
+                c.disconnect_all(scale)
             }
-            c.disconnect_all (this._rounded_in_maximized_switch)
+            c.disconnect_all(this._rounded_in_maximized_switch)
         }
 
-        get cfg (): RoundedCornersCfg {
+        get cfg(): RoundedCornersCfg {
             return {
                 padding: {
-                    left: this._padding_left_scale.get_value (),
-                    right: this._padding_right_scale.get_value (),
-                    top: this._padding_top_scale.get_value (),
-                    bottom: this._padding_bottom_scale.get_value (),
+                    left: this._padding_left_scale.get_value(),
+                    right: this._padding_right_scale.get_value(),
+                    top: this._padding_top_scale.get_value(),
+                    bottom: this._padding_bottom_scale.get_value(),
                 },
                 keep_rounded_corners: this._rounded_in_maximized_switch.active,
-                border_radius: this._border_radius_scale.get_value (),
-                smoothing: this._smoothing_scale.get_value (),
+                border_radius: this._border_radius_scale.get_value(),
+                smoothing: this._smoothing_scale.get_value(),
                 enabled: true,
             }
         }
 
-        set cfg (cfg: RoundedCornersCfg) {
+        set cfg(cfg: RoundedCornersCfg) {
             this._rounded_in_maximized_switch.active = cfg.keep_rounded_corners
-            this._border_radius_scale.set_value (cfg.border_radius)
-            this._smoothing_scale.set_value (cfg.smoothing)
-            this._padding_left_scale.set_value (cfg.padding.left)
-            this._padding_right_scale.set_value (cfg.padding.right)
-            this._padding_top_scale.set_value (cfg.padding.top)
-            this._padding_bottom_scale.set_value (cfg.padding.bottom)
+            this._border_radius_scale.set_value(cfg.border_radius)
+            this._smoothing_scale.set_value(cfg.smoothing)
+            this._padding_left_scale.set_value(cfg.padding.left)
+            this._padding_right_scale.set_value(cfg.padding.right)
+            this._padding_top_scale.set_value(cfg.padding.top)
+            this._padding_bottom_scale.set_value(cfg.padding.bottom)
         }
     }
 )
